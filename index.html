@@ -1,292 +1,583 @@
 <!DOCTYPE html>
+
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hệ Thống Đấu Giá Group 10 - TechBid</title>
+
     <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
         
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
             font-family: 'Inter', sans-serif;
+
         }
+
+
 
         body {
+
             background-color: #f8fafc;
+
             color: #1e293b;
+
             line-height: 1.6;
+
             overflow-x: hidden;
+
         }
+
+
 
         header {
+
             background: rgba(255, 255, 255, 0.95);
+
             backdrop-filter: blur(10px);
+
             padding: 15px 10%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
             position: fixed;
+
             top: 0;
+
             width: 100%;
+
             z-index: 1000;
+
         }
+
+
 
         .logo {
+
             font-size: 26px;
+
             font-weight: 800;
+
             color: #1e40af;
+
             letter-spacing: -0.5px;
+
         }
+
+
 
         .logo span {
+
             color: #f59e0b;
+
         }
+
+
 
         .nav-info {
+
             font-size: 14px;
+
             color: #3b82f6;
+
             font-weight: 700;
+
             background: #eff6ff;
+
             padding: 8px 20px;
+
             border-radius: 30px;
+
             border: 1px solid #bfdbfe;
+
         }
+
+
 
         .hero {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 140px 10% 100px 10%;
+
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #ffffff 100%);
+
             min-height: 100vh;
+
         }
+
+
 
         .hero-text {
+
             max-width: 50%;
+
         }
+
+
 
         .hero-text h1 {
+
             font-size: 54px;
+
             font-weight: 800;
+
             line-height: 1.15;
+
             margin-bottom: 25px;
+
             color: #0f172a;
+
             background: linear-gradient(to right, #1e3a8a, #3b82f6);
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
+
         }
+
+
 
         .hero-text p {
+
             font-size: 18px;
+
             color: #475569;
+
             margin-bottom: 40px;
+
             text-align: justify;
+
         }
+
+
 
         .btn-download {
+
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
+
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
             color: white;
+
             padding: 18px 45px;
+
             font-size: 18px;
+
             font-weight: 700;
+
             text-decoration: none;
+
             border-radius: 50px;
+
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
         }
+
+
 
         .btn-download:hover {
+
             transform: translateY(-5px) scale(1.02);
+
             box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+
         }
+
+
 
         .version-text {
+
             display: block;
+
             margin-top: 15px;
+
             font-size: 14px;
+
             color: #64748b;
+
             font-weight: 600;
+
         }
+
+
 
         .hero-image {
+
             width: 45%;
+
             background: white;
+
             padding: 30px;
+
             border-radius: 30px;
+
             box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+
             border: 1px solid #f1f5f9;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             transform: perspective(1000px) rotateY(-5deg);
+
             transition: transform 0.5s ease;
+
         }
+
+
 
         .hero-image:hover {
+
             transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+
         }
+
+
 
         .hero-image img {
+
             width: 100%;
+
             max-width: 350px;
+
             display: block;
+
         }
+
+
 
         .features {
+
             padding: 100px 10%;
+
             text-align: center;
+
             background: white;
+
         }
+
+
 
         .features h2 {
+
             font-size: 36px;
+
             font-weight: 800;
+
             margin-bottom: 60px;
+
             color: #0f172a;
+
         }
+
+
 
         .grid {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 40px;
+
         }
+
+
 
         .card {
+
             padding: 45px 35px;
+
             background: #ffffff;
+
             border-radius: 20px;
+
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+
             border: 1px solid #e2e8f0;
+
             transition: all 0.3s ease;
+
             text-align: center;
+
             position: relative;
+
             overflow: hidden;
+
         }
+
+
 
         .card::before {
+
             content: "";
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 4px;
+
             background: linear-gradient(to right, #3b82f6, #60a5fa);
+
             transform: scaleX(0);
+
             transition: transform 0.3s ease;
+
         }
+
+
 
         .card:hover::before {
+
             transform: scaleX(1);
+
         }
+
+
 
         .card:hover {
+
             transform: translateY(-10px);
+
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+
         }
+
+
 
         .card-icon {
+
             font-size: 40px;
+
             margin-bottom: 20px;
+
             display: inline-block;
+
         }
+
+
 
         .card h3 {
+
             font-size: 22px;
+
             color: #1e293b;
+
             margin-bottom: 15px;
+
             font-weight: 800;
+
         }
+
+
 
         .card p {
+
             color: #64748b;
+
             font-size: 16px;
+
             line-height: 1.7;
+
         }
+
+
 
         footer {
+
             text-align: center;
+
             padding: 40px;
+
             background: #0f172a;
+
             color: #94a3b8;
+
             font-size: 15px;
+
         }
+
+
 
         @media (max-width: 992px) {
+
             .hero {
+
                 flex-direction: column;
+
                 text-align: center;
+
                 padding-top: 120px;
+
             }
+
             .hero-text {
+
                 max-width: 100%;
+
                 margin-bottom: 60px;
+
             }
+
             .hero-image {
+
                 width: 100%;
+
                 max-width: 400px;
+
                 transform: none;
+
             }
+
             .hero-image:hover {
+
                 transform: translateY(-10px);
+
             }
+
             .grid {
+
                 grid-template-columns: 1fr;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <header>
+
         <div class="logo">Group 10 <span>Auction</span></div>
+
         <div class="nav-info">🚀 Đồ án: Phát triển Ứng dụng</div>
+
     </header>
 
+
+
     <section class="hero">
+
         <div class="hero-text">
+
             <h1>Sàn Đấu Giá Trực Tuyến Tốc Độ Cao</h1>
+
             <p>Trải nghiệm hệ thống mua sắm và đấu giá thời gian thực (Real-time) chạy trên nền tảng kết nối Socket mạnh mẽ. Hỗ trợ cơ chế trợ lý tự động nâng giá Auto-Bid thông minh và tính năng khôi phục mật khẩu tài khoản qua mã xác minh OTP cực kỳ bảo mật.</p>
-            <a href="https://drive.google.com/uc?export=download&id=11RVV2L0KY2qHeGJwTYunj27tCeJMB2S9" class="btn-download" target="_blank">
+
+            <a href="https://drive.google.com/uc?export=download&id=1YKDKo-tByaQ-eGQju7ncrOwn4aSFD-Mo" class="btn-download" target="_blank">
+
                 📥 TẢI XUỐNG CHO WINDOWS
+
             </a>
+
             <span class="version-text">Phiên bản chính thức v1.0.0 | Định dạng: Ứng dụng thi hành (.exe)</span>
+
         </div>
+
         <div class="hero-image">
+
             <img src="AppDauGia10Groups.ico.png" alt="Logo TechBid">
+
         </div>
+
     </section>
+
+
 
     <section class="features">
+
         <h2>Tính Năng Hệ Thống Lõi</h2>
+
         <div class="grid">
+
             <div class="card">
+
                 <span class="card-icon">⚡</span>
+
                 <h3>Đấu Giá Real-time</h3>
+
                 <p>Toàn bộ bước nhảy giá được đồng bộ hóa live theo thời gian thực tới từng mili-giây qua cổng Socket Server, đảm bảo tính công bằng tuyệt đối.</p>
+
             </div>
+
             <div class="card">
+
                 <span class="card-icon">🤖</span>
+
                 <h3>Robot Tự Động Auto-Bid</h3>
+
                 <p>Cấu hình mức giá trần tối đa và bước nhảy thầu, máy chủ sẽ kích hoạt AI tự động đấu tranh thay bạn kể cả khi bạn đã tắt ứng dụng.</p>
+
             </div>
+
             <div class="card">
+
                 <span class="card-icon">🛡️</span>
+
                 <h3>Xác Minh OTP Đám Mây</h3>
+
                 <p>Cơ chế HTTP Bridge an toàn vượt qua mọi tường lửa hạ tầng Cloud, tự động bắn OTP xác thực thẳng về hòm thư Gmail của người dùng.</p>
+
             </div>
+
         </div>
+
     </section>
 
+
+
     <footer>
+
         <p>© 2026 Học viện Công nghệ. Bản quyền mã nguồn thuộc về Nhóm 10. Hệ thống được triển khai trên VPS DigitalOcean.</p>
+
     </footer>
 
+
+
 </body>
+
 </html>
