@@ -13,9 +13,7 @@
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-
         
-
         * {
 
             margin: 0;
@@ -176,6 +174,20 @@
 
 
 
+        .action-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+
         .btn-download {
 
             display: inline-flex;
@@ -211,6 +223,50 @@
             transform: translateY(-5px) scale(1.02);
 
             box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
+
+        }
+
+
+
+        .btn-mobile {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: white;
+
+            color: #2563eb;
+
+            border: 2px solid #2563eb;
+
+            padding: 18px 45px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        }
+
+
+
+        .btn-mobile:hover {
+
+            transform: translateY(-5px) scale(1.02);
+
+            background: #eff6ff;
+
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
 
         }
 
@@ -480,6 +536,12 @@
 
             }
 
+            .action-buttons {
+
+                justify-content: center;
+
+            }
+
         }
 
     </style>
@@ -508,11 +570,21 @@
 
             <p>Trải nghiệm hệ thống mua sắm và đấu giá thời gian thực (Real-time) chạy trên nền tảng kết nối Socket mạnh mẽ. Hỗ trợ cơ chế trợ lý tự động nâng giá Auto-Bid thông minh và tính năng khôi phục mật khẩu tài khoản qua mã xác minh OTP cực kỳ bảo mật.</p>
 
-            <a href="https://drive.google.com/uc?export=download&id=https://drive.google.com/file/d/1YNUn6P9Dkh01frq2FLe9P8zlGD5b6mda/view?usp=sharing" class="btn-download" target="_blank">
+            <div class="action-buttons">
 
-                📥 TẢI XUỐNG CHO WINDOWS
+                <a href="https://drive.google.com/uc?export=download&id=1YNUn6P9Dkh01frq2FLe9P8zlGD5b6mda" class="btn-download" target="_blank">
 
-            </a>
+                    📥 TẢI XUỐNG CHO WINDOWS
+
+                </a>
+
+                <a href="https://25023379-sudo.github.io/10GroupsBid/" class="btn-mobile" target="_blank">
+
+                    📱 TRẢI NGHIỆM WEB MOBILE
+
+                </a>
+
+            </div>
 
             <span class="version-text">Phiên bản chính thức v1.0.0 | Định dạng: Ứng dụng thi hành (.exe)</span>
 
